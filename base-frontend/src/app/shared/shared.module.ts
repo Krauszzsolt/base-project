@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [],
@@ -12,13 +12,13 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatSidenavModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   exports: [
     MatFormFieldModule,
     MatSidenavModule,
     MatInputModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

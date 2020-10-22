@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-food-add',
-  templateUrl: './food-add.component.html',
-  styleUrls: ['./food-add.component.scss']
+  selector: "app-food-add",
+  templateUrl: "./food-add.component.html",
+  styleUrls: ["./food-add.component.scss"],
 })
 export class FoodAddComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
