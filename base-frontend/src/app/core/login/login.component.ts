@@ -10,7 +10,10 @@ import { AuthService } from '../service/auth.service';
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
-  loginDto: LoginDto ;
+  loginDto: LoginDto = {
+    username: '',
+    password: ''
+  };
 
   errorMessage: string = undefined;
 
