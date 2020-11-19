@@ -29,5 +29,16 @@ namespace Backend.Controllers
             return Ok($"Authenticated. Hello {CurrentUser.UserName}!");
         }
 
+        /// <summary>
+        /// Test API with authentication, admin role.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("admin-auth")]
+        [Authorize(Role: "Administrator")]
+        public ActionResult<string> TestAdminAuth()
+        {
+            return Ok($"Authenticated. Hello {CurrentUser.UserName}! You are an admin Harry!");
+        }
+
     }
 }
