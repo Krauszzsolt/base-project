@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Backend
 {
@@ -63,7 +64,7 @@ namespace Backend
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -98,6 +99,63 @@ namespace Backend
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
             });
+
+
+            CreateRoles(serviceProvider);
+
         }
+
+        private void CreateRoles(IServiceProvider serviceProvider)
+        {
+            // roles
+            var adminRole = "Administrator";
+            var userRole = "User";
+
+            // managers
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            // check that there is an Administrator role and create if not
+
+            var hasAdminRole = roleManager.RoleExistsAsync(adminRole);
+            hasAdminRole.Wait();
+            if (!hasAdminRole.Result)
+            {
+                var roleResult = roleManager.CreateAsync(new IdentityRole(adminRole));
+                roleResult.Wait();
+            }
+
+            var hasUserRole = roleManager.RoleExistsAsync(userRole);
+            hasUserRole.Wait();
+            if (!hasUserRole.Result)
+            {
+                var roleResult = roleManager.CreateAsync(new IdentityRole(userRole));
+                roleResult.Wait();
+            }
+
+            // add to the Administrator role
+
+            string userName = "admin";
+            var testUser = userManager.FindByNameAsync(userName);
+            testUser.Wait();
+
+            if (testUser.Result == null)
+            {
+                var administrator = new ApplicationUser()
+                {
+                    UserName = userName
+                };
+
+                var newUser = userManager.CreateAsync(administrator, "password123");
+                newUser.Wait();
+
+                if (newUser.Result.Succeeded)
+                {
+                    var newUserRole = userManager.AddToRoleAsync(administrator, adminRole);
+                    newUserRole.Wait();
+                }
+            }
+        }
+
     }
 }
