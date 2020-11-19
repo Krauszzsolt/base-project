@@ -8,11 +8,7 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  registerDto: RegisterDto = {
-    username: 'Test',
-    password: 'test',
-    confirmPassword: 'test',
-  };
+  registerDto: RegisterDto;
 
   errorMessage: string = undefined;
 
@@ -27,7 +23,7 @@ export class RegistrationComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.errorMessage = error.message;
+        this.errorMessage = error.error.message;
       }
     );
   }

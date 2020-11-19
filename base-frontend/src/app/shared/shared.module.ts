@@ -8,6 +8,7 @@ import { MatCardModule, MatDialogModule, MatToolbarModule } from '@angular/mater
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import { MatDialogWrapperComponent } from './dialog/mat-dialog-wrapper.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [MatDialogWrapperComponent],
@@ -22,6 +23,7 @@ import { MatDialogWrapperComponent } from './dialog/mat-dialog-wrapper.component
     MatCardModule,
     LayoutModule,
     MatDialogModule,
+    FormsModule
   ],
   exports: [
     MatFormFieldModule,
@@ -34,6 +36,7 @@ import { MatDialogWrapperComponent } from './dialog/mat-dialog-wrapper.component
     LayoutModule,
     MatDialogModule,
     MatDialogWrapperComponent,
+    FormsModule
   ],
   entryComponents: [MatDialogWrapperComponent],
 })

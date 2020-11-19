@@ -10,17 +10,21 @@ import { AuthService } from '../service/auth.service';
 export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
-  loginDto: LoginDto = { username: 'test@test.test', password: '123456' };
+  loginDto: LoginDto ;
 
   errorMessage: string = undefined;
 
   ngOnInit() {}
 
   login() {
-    this.authService.login(this.loginDto).subscribe(   (resp) => {
-        console.log(resp)
+    this.authService.login(this.loginDto).subscribe(
+      (resp) => {
+        console.log(resp);
       },
-      (error) => { console.log(error) , this.errorMessage = error.message}
-      );
+      (error) => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+      }
+    );
   }
 }
