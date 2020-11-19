@@ -1,11 +1,12 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { LayoutComponent } from "./layout/layout.component";
-import { LoginComponent } from "./login/login.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
-    path: "home",
+    path: "",
     component: LayoutComponent,
     children: [
       {
@@ -18,15 +19,19 @@ const routes: Routes = [
         loadChildren: () =>
           import("./../feature/cart/cart.module").then((m) => m.CartModule),
       },
+      {
+        path: "login",
+        component: LoginComponent
+      },
+      {
+        path: "registration",
+        component: RegistrationComponent
+      },
+      {
+      path: "",
+      redirectTo: "login"
+      }
     ],
-  },
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-  {
-    path: "",
-    redirectTo: "login",
   },
 ];
 
