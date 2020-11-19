@@ -6,31 +6,33 @@ import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: LayoutComponent,
     children: [
       {
-        path: "food",
-        loadChildren: () =>
-          import("./../feature/food/food.module").then((m) => m.FoodModule),
+        path: 'food',
+        loadChildren: () => import('./../feature/food/food.module').then((m) => m.FoodModule),
       },
       {
-        path: "cart",
-        loadChildren: () =>
-          import("./../feature/cart/cart.module").then((m) => m.CartModule),
+        path: 'cart',
+        loadChildren: () => import('./../feature/cart/cart.module').then((m) => m.CartModule),
       },
       {
-        path: "login",
-        component: LoginComponent
+        path: 'caff',
+        loadChildren: () => import('./../feature/caff/caff.module').then((m) => m.CaffModule),
       },
       {
-        path: "registration",
-        component: RegistrationComponent
+        path: 'login',
+        component: LoginComponent,
       },
       {
-      path: "",
-      redirectTo: "login"
-      }
+        path: 'registration',
+        component: RegistrationComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'login',
+      },
     ],
   },
 ];

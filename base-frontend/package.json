@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate:api": "openapi-generator-cli generate -g typescript-angular -i http://localhost:5000/swagger/v1/swagger.json -o ./src/app/shared/client"
+    "generate:api": "openapi-generator-cli generate -g typescript-angular -i http://localhost:44364/swagger/v1/swagger.json -o ./src/app/shared/client"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +27,7 @@
     "angular2-jwt": "^0.2.3",
     "bootstrap": "^4.5.2",
     "core-js": "^2.5.4",
+    "bulma": "^0.9.1",
     "jwt-decode": "^3.0.0",
     "moment": "2.24.0",
     "ng-mat-search-bar": "^10.0.0-beta.3",

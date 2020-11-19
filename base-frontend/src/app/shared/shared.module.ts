@@ -7,9 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule, MatDialogModule, MatToolbarModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import { MatDialogWrapperComponent } from './dialog/mat-dialog-wrapper.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [MatDialogWrapperComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -20,7 +21,7 @@ import { NgMatSearchBarModule } from 'ng-mat-search-bar';
     NgMatSearchBarModule,
     MatCardModule,
     LayoutModule,
-    MatDialogModule, 
+    MatDialogModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -31,7 +32,9 @@ import { NgMatSearchBarModule } from 'ng-mat-search-bar';
     NgMatSearchBarModule,
     MatCardModule,
     LayoutModule,
-    MatDialogModule, 
+    MatDialogModule,
+    MatDialogWrapperComponent,
   ],
+  entryComponents: [MatDialogWrapperComponent],
 })
 export class SharedModule {}

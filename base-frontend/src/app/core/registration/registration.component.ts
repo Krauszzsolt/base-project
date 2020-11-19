@@ -5,31 +5,30 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  
   registerDto: RegisterDto = {
     username: 'Test',
     password: 'test',
     confirmPassword: 'test',
-  }
+  };
 
   errorMessage: string = undefined;
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  registration(){
+  registration() {
     this.authService.register(this.registerDto).subscribe(
       (resp) => {
-        console.log(resp)
-    },
-    (error) => { console.log(error) , this.errorMessage = error.message}
+        console.log(resp);
+      },
+      (error) => {
+        console.log(error);
+        this.errorMessage = error.message;
+      }
     );
   }
-
-
 }
