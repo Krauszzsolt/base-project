@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse, HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoadingService } from '@src/app/shared/service/loading.service';
 import { finalize, tap } from 'rxjs/operators';
+import { LoadingService } from 'src/app/shared/service/loading.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoaderInterceptor implements HttpInterceptor {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CaffService } from '@src/app/feature/caff/service/caff.service';
-import { ApplicationUserDto } from '@src/app/shared/client';
 import { Observable } from 'rxjs';
+import { CaffService } from 'src/app/feature/caff/service/caff.service';
+import { ApplicationUserDto } from 'src/app/shared/client';
 import { AuthService } from '../service/auth.service';
 
 @Component({
